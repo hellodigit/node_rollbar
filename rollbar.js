@@ -259,7 +259,7 @@ exports.handleUncaughtExceptions = function(accessToken, options) {
         notifier.changeHandler('inline');
       }
 
-      notifier.handleError(err, function(err) {
+      notifier.handleErrorWithPayloadData(err, { level: 'critical' }, function(err) {
         if (err) {
           console.error('[Rollbar] Encountered an error while handling an uncaught exception.');
           console.error(err);
